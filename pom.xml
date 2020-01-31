@@ -7,22 +7,22 @@
 	<name>mywebstore</name>
 	<description>spring mvc 4.3.25.RELEASE xml based configuration</description>
 	<packaging>war</packaging>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 		<springframework.version>4.3.25.RELEASE</springframework.version>
 	</properties>
-	
+
 	<dependencies>
-		
-		<!-- SPRING WEB MVC dependency  -->
+
+		<!-- SPRING WEB MVC dependency -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-		
-		<!-- SERVLET / JSP / JSTL dependencies  -->
+
+		<!-- SERVLET / JSP / JSTL dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -36,7 +36,7 @@
 			<version>2.3.1</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -45,7 +45,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<!-- MAVEN COMPILER plugin -->
@@ -56,6 +56,17 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<!-- MAVEN WAR plugin for src dir and exclusion of web.xml  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.2</version>
+				<configuration>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 		</plugins>
