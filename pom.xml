@@ -21,6 +21,13 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		
+		<!-- SPRING JDBC dependency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.2.2.RELEASE</version>
+		</dependency>
 
 		<!-- SERVLET / JSP / JSTL dependencies -->
 		<dependency>
@@ -42,6 +49,20 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 			<scope>provided</scope>
+		</dependency>
+		
+		<!-- MYSQL dependecy -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.11</version>
+		</dependency>
+
+		<!-- LOG4J logging dependency -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.25</version>
 		</dependency>
 
 	</dependencies>
