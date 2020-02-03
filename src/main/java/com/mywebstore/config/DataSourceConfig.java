@@ -11,14 +11,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
-import com.mywebstore.mvc.controller.PingController;
-
 @Configuration
 @ComponentScan("com.mywebstore.mvc.dao")
 @PropertySource("classpath:db.properties")
 public class DataSourceConfig {
 
-	private static final Logger LOGGER = Logger.getLogger(PingController.class);
+	private static final Logger LOGGER = Logger.getLogger(DataSourceConfig.class);
 
 	@Autowired
 	Environment environment;

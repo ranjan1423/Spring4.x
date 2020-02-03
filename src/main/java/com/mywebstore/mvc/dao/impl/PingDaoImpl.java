@@ -6,11 +6,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.mywebstore.mvc.dao.PingDao;
-import com.mywebstore.mvc.dao.impl.rm.NowMapper;
+import com.mywebstore.mvc.dao.impl.rm.checkDbMapper;
 
-@Component	
+@Repository
 public class PingDaoImpl implements PingDao {
 
 	private static final Logger LOGGER = Logger.getLogger(PingDaoImpl.class);
@@ -25,10 +26,10 @@ public class PingDaoImpl implements PingDao {
 	}
 
 	@Override
-	public String now() {
+	public String checkDb() {
 		String result = null;
 		try {
-			result = jdbcTemplate.queryForObject(SQL_NOW, new Object[] {}, new NowMapper());
+			result = jdbcTemplate.queryForObject(SQL_NOW, new Object[] {}, new checkDbMapper());
 		} catch (Exception exp) {
 			LOGGER.error("Exception in PingDaoImpl : " + exp.getMessage());
 		}

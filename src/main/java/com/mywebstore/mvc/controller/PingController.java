@@ -19,8 +19,8 @@ public class PingController {
 	@Autowired
 	private PingService pingService;
 
-	@GetMapping(path = "/ping")
-	public String ping(ModelMap modelMap) {
+	@GetMapping(path = "/pingaap")
+	public String pingaap(ModelMap modelMap) {
 		StringBuilder msg = new StringBuilder();
 		msg.append("PingController called on : ");
 		msg.append(new Date());
@@ -29,12 +29,12 @@ public class PingController {
 		return View.ping.toString();
 	}
 
-	@GetMapping(path = "/now")
-	public String now(ModelMap modelMap) {
-		LOGGER.info("Ping controller::now() called.");
+	@GetMapping(path = "/pingdb")
+	public String pingdb(ModelMap modelMap) {
+		LOGGER.info("Ping controller :: pingdb() called.");
 		StringBuilder msg = new StringBuilder();
-		msg.append("PingController called for now() : ");
-		modelMap.addAttribute("message", pingService.now());
+		msg.append("PingController called to check db connection : ");
+		modelMap.addAttribute("message", pingService.checkDb());
 		return View.now.toString();
 	}
 }
