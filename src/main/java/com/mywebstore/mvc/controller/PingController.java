@@ -19,22 +19,23 @@ public class PingController {
 	@Autowired
 	private PingService pingService;
 
-	@GetMapping(path = "/pingaap")
+	@GetMapping(path = "/pingapp")
 	public String pingaap(ModelMap modelMap) {
+		LOGGER.info("PingController :: pingaap() called.");
 		StringBuilder msg = new StringBuilder();
-		msg.append("PingController called on : ");
+		msg.append("Application is running : ");
 		msg.append(new Date());
 		modelMap.addAttribute("message", msg.toString());
-		LOGGER.info(msg.toString());
 		return View.ping.toString();
 	}
 
 	@GetMapping(path = "/pingdb")
 	public String pingdb(ModelMap modelMap) {
-		LOGGER.info("Ping controller :: pingdb() called.");
+		LOGGER.info("PingController :: pingdb() called.");
 		StringBuilder msg = new StringBuilder();
-		msg.append("PingController called to check db connection : ");
-		modelMap.addAttribute("message", pingService.checkDb());
-		return View.now.toString();
+		msg.append("Application + database is running : ");
+		msg.append(pingService.checkDb());
+		modelMap.addAttribute("message", msg.toString());
+		return View.ping.toString();
 	}
 }
